@@ -13,4 +13,4 @@ push:
 helm:
 	helm upgrade --install vaccine ./chart --namespace vaccine --set image=${VERSION}
 
-deploy: build push deploy-ci
+deploy: build push helm
