@@ -49,7 +49,7 @@ func main() {
 
 	log.Println("Starting loop")
 	for {
-		time.Sleep(1 * time.Second)
+		time.Sleep(1 * time.Minute)
 
 		// Request the HTML page.
 		res, err := http.Get("https://doktor24.se/vaccin/covid-vaccin/region-stockholm/")
