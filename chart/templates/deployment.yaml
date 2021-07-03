@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vaccine-deployment
+  namespace: vaccine
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vaccine
+  template:
+    metadata:
+      labels:
+        app: vaccine
+    spec:
+      containers:
+        - name: vaccine
+          image: "gcr.io/sousandrei/vaccine:{{ .Values.image }}"
+          imagePullPolicy: Always
+          envFrom:
+            - secretRef:
+                name: vaccine-secret
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "250Mi"
+            limits:
+              cpu: "1"
+              memory: "500Mi"
