@@ -10,7 +10,7 @@ push:
 	docker tag ${IMAGE} ${REGISTRY_URL}/${IMAGE}:${VERSION}
 	docker push ${REGISTRY_URL}/${IMAGE}:${VERSION}
 
-deploy-ci:
-	helm upgrade vaccine ./chart --namespace vaccine --set image=${VERSION}
+helm:
+	helm upgrade --install vaccine ./chart --namespace vaccine --set image=${VERSION}
 
 deploy: build push deploy-ci
