@@ -88,7 +88,7 @@ func main() {
 			found = true
 
 			log.Println("sending message")
-			bot.Send(&tb.Chat{ID: chatId}, "test")
+			bot.Send(&tb.Chat{ID: chatId}, "List open!\nhttps://doktor24.se/vaccin/covid-vaccin/region-stockholm/")
 		}
 
 	}
