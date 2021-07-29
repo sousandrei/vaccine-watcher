@@ -42,12 +42,12 @@ var ctx = context.Background()
 func main() {
 	chatId, err := strconv.ParseInt(os.Getenv("CHAT_ID"), 10, 64)
 
-	redisHost := os.Getenv("REDIS_HOST")
-	redisPass := os.Getenv("REDIS_PASSWORD")
-
 	if err != nil {
 		log.Fatalln("CHAT_ID not present")
 	}
+
+	redisHost := os.Getenv("REDIS_HOST")
+	redisPass := os.Getenv("REDIS_PASSWORD")
 
 	bot := createBot()
 	log.Println("Bot created")
