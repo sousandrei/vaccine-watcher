@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
@@ -72,9 +73,9 @@ func main() {
 		}
 
 		// Find the items
-		items := doc.Find("#main-content > div.block.block--yellow.block--mobile-left.block--desktop-left.block--text > div.block__content.container > div.row.align-items-center > div > div > p:nth-child(2) > strong").Nodes
+		items := doc.Find("#reservlista-covid-19").Nodes
 
-		if len(items) > 0 && items[0].FirstChild.Data == "stängd" {
+		if len(items) > 0 && strings.Contains(items[0].FirstChild.Data, "stängd") {
 			log.Println("list closed")
 
 			found = false
